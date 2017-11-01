@@ -25,7 +25,7 @@ export const Tabs = TabNavigator({
 	Saved: { screen: Saved,
 	navigationOptions: {
 		tabBarLabel: 'WISHLIST',
-		tabBarIcon: ({ tintColor}) =>  <Icon name="ios-heart-outline" size={35} />
+		tabBarIcon: ({ tintColor }) =>  <Icon name="ios-heart-outline" size={35} />
 	},
 },
 	Rented: { screen: Rented,
@@ -43,13 +43,16 @@ export const Tabs = TabNavigator({
 	Profile: { screen: Profile,
 	navigationOptions: {
 		tabBarLabel: 'PROFILE',
-		tabBarIcon: ({ tintColor}) =>  <Icon name="ios-person-outline" size={35} />
+		tabBarIcon: ({ tintColor}) =>  <Icon name="ios-person-outline" size={35} color={tintColor}/>
 	},
 },
 
 },
 {
-	tabBarOptions: { activeTintColor: 'dodgerblue',},
+	tabBarOptions: {
+		 activeTintColor: 'dodgerblue',
+		 pressColor: 'dodgerblue'
+	},
 	tabBarComponent: TabBarBottom,
 	tabBarPosition: 'bottom',
 	swipeEnabled: false,
