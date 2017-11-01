@@ -50,7 +50,9 @@ const styles = StyleSheet.create({
 	},
 	modal : {
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		height: 200,
+		width: 200
 	},
 	startContainerRow : {
 		alignSelf: 'flex-start',

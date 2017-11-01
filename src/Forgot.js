@@ -41,14 +41,13 @@ export default class Index extends Component {
     }
   }
 
-	onLogin(){
+	onSubmit(){
 		this.setState({ process: true})
-		auth.signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-			AsyncStorage.setItem('userData', JSON.stringify(user), (user) => {
-				this.setState({ process: false })
-			})
+		auth.sendPasswordResetEmail(this.state.email).then(() => {
+			alert('Please Check Your Email')
+			this.setState({ process: false })
 			this.refs.modal1.close()
-			this.props.navigation.navigate('Tabs')
+			this.props.navigation.navigate('Login')
 		})
 		.catch((e) => {
 			alert(e)
@@ -63,41 +62,26 @@ export default class Index extends Component {
 		return(
 		<View style={styles.container}>
 			<View style={styles.startContainer}>
-				<Text style={styles.indexTitle}> Login </Text>
+				<Text style={styles.indexTitle}> Forgot Password </Text>
 				<FormLabel style={styles.label}> EMAIL </FormLabel>
 				<FormInput
 				  style={styles.defaultForm}
 				  onChangeText={(email) => this.setState({email})}
 				/>
-
-				<FormLabel> PASSWORD </FormLabel>
-				<FormInput
-				  style={styles.defaultForm}
-				  onChangeText={(password) => this.setState({password})}
-				  secureTextEntry
-				/>
-
 			</View>
 
 				<TouchableOpacity
 				  onPress={() => this.refs.modal1.open()}
 				  style={styles.defaultButton}>
-					<Text style={styles.textDefaultButton}> Sign In </Text>
+					<Text style={styles.textDefaultButton}> Submit </Text>
 				</TouchableOpacity>
-
-				<TouchableOpacity
-				onPress={ () => this.props.navigation.navigate('Forgot')}
-				>
-				<Text style={styles.normalText}> Forgot Password? </Text>
-				</TouchableOpacity>
-
 			<Modal
 	          style={styles.modal}
 	          ref={"modal1"}
 	          backdropPressToClose={false}
 	          backdropOpacity={0.5}
 	          swipeToClose={false}
-	          onOpened={this.onLogin.bind(this)}>
+	          onOpened={this.onSubmit.bind(this)}>
 	        			<Animation
 				            ref={animation => {
 				              this.animation = animation;

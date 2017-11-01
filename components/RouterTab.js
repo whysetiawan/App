@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {TabNavigator, TabView, TabBarBottom} from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Create from '../src/home_screen/Create Studio';
+import Create from '../src/home_screen/Add Studio';
 import Rented from '../src/home_screen/Rented';
 import Explore from '../src/home_screen/Explore';
 import Profile from '../src/home_screen/Profile';
@@ -10,7 +10,7 @@ import Message from '../src/home_screen/Message';
 import {Stack} from './Router';
 
 export const Tabs = TabNavigator({
-	Creata: { screen: Create,
+	Create: { screen: Create,
 	navigationOptions: {
 		tabBarLabel: 'STUDIO',
 		tabBarIcon: ({ tintColor}) =>  <Icon name="ios-musical-notes-outline" size={35} />
